@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15.0-alpine
+    ports:
+      - "4445:5432"
+    volumes:
+      - data:/var/lib/postgresql1/data
+    environment:
+      POSTGRES_DB: whatsai
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: user
+
+  whatsai:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgres://user:pass@postgres/whatsai
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  data:

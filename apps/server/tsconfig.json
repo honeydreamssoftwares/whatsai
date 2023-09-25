@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2016"],
+    "module": "CommonJS",
+    // "moduleResolution": "Node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules"],
+  // "paths": {
+  //   "database": [
+  //     "../../packages/database/index.ts"
+  //   ],
+  //   "types": [
+  //     "../../packages/types/index.ts"
+  //   ],
+  //   "trpc": [
+  //     "../../packages/trpc/index.ts"
+  //   ]
+  // },
+  "extends": "tsconfig/base.json",
+  "include": ["src", "src/.ts"]
+}
